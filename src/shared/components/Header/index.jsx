@@ -1,0 +1,30 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+
+import * as S from './styled';
+
+const paths = [
+  { name: 'Characters', path: '/characters' },
+  { name: 'Episodes', path: '/episodes' },
+  { name: 'Locations', path: '/locations' },
+];
+
+const Header = () => {
+  const { pathname } = useLocation();
+
+  return (
+    <S.Container>
+      <S.Nav>
+        <S.Links>
+          {paths.map(({ path, name }, index) => (
+            <S.LinkContainer key={index} active={pathname.startsWith(path)}>
+              <S.ALink to={path}>{name}</S.ALink>
+            </S.LinkContainer>
+          ))}
+        </S.Links>
+      </S.Nav>
+    </S.Container>
+  );
+};
+
+export default Header;
