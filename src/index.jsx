@@ -3,7 +3,15 @@ import 'core-js/stable';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 import App from 'App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { client } from 'client';
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root'),
+);

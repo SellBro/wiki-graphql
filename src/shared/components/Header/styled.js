@@ -10,7 +10,7 @@ export const Container = styled.header`
   right: 0px;
   z-index: 1000;
   transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
-  background-color: ${color.header};
+  background-color: ${color.grayTransparent};
 `;
 
 export const Nav = styled.div`

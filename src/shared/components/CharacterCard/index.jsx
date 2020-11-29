@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { cutName } from 'shared/utils/helpers';
+
 import CharacterImage from '../CharacterImage';
 
 import * as S from './styled';
 
 const CharacterCard = ({ id, name, image }) => {
-  const shortened = name;
+  const shortened = cutName(name, 22);
 
   return (
     <S.Block>

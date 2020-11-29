@@ -1,24 +1,32 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 
-import { CharacterCard } from 'shared/components';
+import { CharacterCard, PageSwitch } from 'shared/components';
+
+import { GET_ALL_CHARACTERS } from 'shared/utils/queries/characters';
 
 import * as S from './styled';
 
-const data = [
-  { image: 'https://picsum.photos/200/300', id: '1', name: 'Rick' },
-  { image: 'https://picsum.photos/200/300', id: '2', name: 'Chaba' },
-  { image: 'https://picsum.photos/200/300', id: '3', name: 'Denis' },
-  { image: 'https://picsum.photos/200/300', id: '4', name: 'Morty' },
-  { image: 'https://picsum.photos/200/300', id: '5', name: 'Asarann' },
-];
-
 const Characters = () => {
+  const page = 1;
+
+  const { data, loading } = useQuery(GET_ALL_CHARACTERS, {
+    variables: { page },
+  });
+
+  if (loading) return <h1>Loading</h1>;
+  const characters = data.characters.results;
   return (
-    <S.CharactersList>
-      {data.map(character => (
-        <CharacterCard {...character} />
-      ))}
-    </S.CharactersList>
+    <>
+      <S.CharactersList>
+        {characters.map((character, index) => (
+          <CharacterCard key={index} {...character} />
+        ))}
+      </S.CharactersList>
+      <S.PageSwitchContainer>
+        <PageSwitch page={page} allPages={data.characters.info.pages} />
+      </S.PageSwitchContainer>
+    </>
   );
 };
 

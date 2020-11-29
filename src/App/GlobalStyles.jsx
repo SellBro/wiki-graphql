@@ -14,7 +14,9 @@ export default createGlobalStyle`
     }
 
     body {
-        ${font.primary};
+        font-size: 112.5%;
+        line-height: 1.625; 
+        ${font.test};
         background-color: ${color.background};
         color: ${color.textPrimary};
     }

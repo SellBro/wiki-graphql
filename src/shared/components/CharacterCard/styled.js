@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   height: 300px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: rgb(46, 46, 46);
+  background-color: ${color.cardInfo};
 `;
 
 export const Info = styled.div`
@@ -17,13 +17,13 @@ export const Info = styled.div`
   bottom: 0;
   width: 100%;
   padding: 20px;
-  background-color: rgba(46, 46, 46, 0.8);
   transition: all 0.2s;
   ${font.size(20)};
+  background-color: ${color.cardInfo};
 
   ${CardContainer}:hover & {
     color: ${color.orange};
-    background-color: rgba(46, 46, 46, 0.9);
+    background-color: ${color.grayTransparent};
   }
 `;
 
