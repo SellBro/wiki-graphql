@@ -62,7 +62,7 @@ export const CharacterProvider = ({ children }) => {
   const [state, dispatch] = useReducer(characterReducer, initialState);
 
   return (
-    <CharacterContext.Provider value={(state, dispatch)}>{children}</CharacterContext.Provider>
+    <CharacterContext.Provider value={{ state, dispatch }}>{children}</CharacterContext.Provider>
   );
 };
 

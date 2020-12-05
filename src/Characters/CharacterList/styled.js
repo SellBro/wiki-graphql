@@ -6,6 +6,7 @@ export const CharactersList = styled.ul`
   justify-content: space-around;
   max-width: 1280px;
   margin: 0px auto;
+  padding: 10px 10px;
 `;
 
 export const PageSwitchContainer = styled.div`
