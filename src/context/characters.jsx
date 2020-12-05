@@ -33,7 +33,7 @@ const characterReducer = (state = initialState, action) => {
         return {
           ...state,
           page: 1,
-          filterOptions: {
+          filter: {
             ...state.filterOptions,
             [action.payload.option]: '',
           },
@@ -42,8 +42,8 @@ const characterReducer = (state = initialState, action) => {
       return {
         ...state,
         page: 1,
-        filterOptions: {
-          ...state.filterOptions,
+        filter: {
+          ...state.filter,
           [action.payload.option]: action.payload.value,
         },
       };

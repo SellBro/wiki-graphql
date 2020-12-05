@@ -44,7 +44,7 @@ export const CharacterFilter = () => {
     setTimer(
       setTimeout(() => {
         dispatch({
-          type: 'setFilterOptions',
+          type: 'setFilter',
           payload: { option, value },
         });
       }, 500),
@@ -53,14 +53,14 @@ export const CharacterFilter = () => {
 
   const handleSelectChange = option => selectedOption => {
     const { value } = selectedOption;
-    dispatch({ type: 'setFilterOptions', payload: { option, value } });
+    dispatch({ type: 'setFilter', payload: { option, value } });
   };
 
   const handleClick = () => {
     if (Object.values(inputState).some(value => value)) {
       clearTimeout(timer);
       setInputState(initialInputState);
-      dispatch({ type: 'resetFilterOptions' });
+      dispatch({ type: 'resetFilter' });
     }
   };
 
@@ -71,7 +71,6 @@ export const CharacterFilter = () => {
         placeholder="Name"
         value={inputState.name}
         onChange={handleInputChange}
-        fullWidth
         size="small"
       />
       <Select
@@ -80,9 +79,6 @@ export const CharacterFilter = () => {
         onChange={handleSelectChange('gender')}
         options={setOptions(gender)}
         placeholder="Gender"
-        className="react-select-container"
-        classNamePrefix="react-select"
-        fullWidth
       />
       <Select
         name="status"
@@ -90,16 +86,12 @@ export const CharacterFilter = () => {
         onChange={handleSelectChange('status')}
         options={setOptions(status)}
         placeholder="Status"
-        className="react-select-container"
-        classNamePrefix="react-select"
-        fullWidth
       />
       <Input
         name="type"
         placeholder="Type"
         value={inputState.type}
         onChange={handleInputChange}
-        fullWidth
         size="small"
       />
       <Input
@@ -107,7 +99,6 @@ export const CharacterFilter = () => {
         placeholder="Species"
         onChange={handleInputChange}
         value={inputState.species}
-        fullWidth
         size="small"
       />
       <FilterButton onClick={handleClick}>Reset</FilterButton>

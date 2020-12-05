@@ -6,5 +6,18 @@ import PageSwitch from './PageSwitch';
 import Input from './Input';
 import FilterButton from './FilterButton';
 import Select from './Select';
+import Icon from './Icon';
+import ErrorMessage from './ErrorMessage';
 
-export { Header, Main, CharacterCard, CharacterImage, PageSwitch, Input, FilterButton, Select };
+export {
+  Header,
+  Main,
+  CharacterCard,
+  CharacterImage,
+  PageSwitch,
+  Input,
+  FilterButton,
+  Select,
+  Icon,
+  ErrorMessage,
+};

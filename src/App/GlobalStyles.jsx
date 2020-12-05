@@ -1,8 +1,11 @@
+import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
 import { font, color } from 'shared/utils/styles';
+import Normalize from './Normalize';
 
-export default createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
     *, *:after, *:before, input[type="search"] {
         box-sizing: border-box;
@@ -14,7 +17,6 @@ export default createGlobalStyle`
     }
 
     body {
-        font-size: 112.5%;
         ${font.test};
         background-color: ${color.background};
         color: ${color.textPrimary};
@@ -59,3 +61,13 @@ export default createGlobalStyle`
   }
 
 `;
+
+export const Theme = ({ children }) => {
+  return (
+    <SkeletonTheme color={color.skeletonMain} highlightColor={color.skeletonHighlight}>
+      <GlobalStyles />
+      <Normalize />
+      {children}
+    </SkeletonTheme>
+  );
+};

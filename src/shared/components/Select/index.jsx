@@ -24,7 +24,7 @@ Select.propTypes = {
 Select.defaultProps = {
   color: undefined,
   size: undefined,
-  fullWidth: undefined,
+  fullWidth: true,
   filled: undefined,
 };
 
