@@ -8,6 +8,7 @@ import FilterButton from './FilterButton';
 import Select from './Select';
 import Icon from './Icon';
 import ErrorMessage from './ErrorMessage';
+import InputDebounced from './InputDebounced';
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   Select,
   Icon,
   ErrorMessage,
+  InputDebounced,
 };

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { useCharacterContext } from 'context';
 import { scrollTo } from 'shared/utils/helpers';
 
 import { Icon } from '..';
@@ -12,10 +11,8 @@ const initInputState = {
   focused: false,
 };
 
-const PageSwitch = ({ allPages, page }) => {
+const PageSwitch = ({ allPages, page, setPage }) => {
   const [inputState, setInputState] = useState(initInputState);
-
-  const { dispatch } = useCharacterContext();
 
   useEffect(() => {
     setInputState({ value: page, focused: false });
@@ -26,7 +23,7 @@ const PageSwitch = ({ allPages, page }) => {
 
     scrollTo(0, 0);
 
-    dispatch({ type: name });
+    setPage(page + parseInt(name));
   };
 
   const setCurrentPage = newPage => {
@@ -36,7 +33,7 @@ const PageSwitch = ({ allPages, page }) => {
     }
     if (newPage >= 1 && newPage <= allPages) {
       scrollTo(0, 0);
-      dispatch({ type: 'setPage', payload: newPage });
+      setPage(newPage);
     } else {
       setInputState(initInputState);
     }
@@ -80,7 +77,7 @@ const PageSwitch = ({ allPages, page }) => {
 
   return (
     <>
-      <Button name="prevPage" disabled={isFirstPage} onClick={toggleButton}>
+      <Button name="-1" disabled={isFirstPage} onClick={toggleButton}>
         <Icon type="angle-left" size={40} />
       </Button>
       <PageCountContainer>
@@ -95,7 +92,7 @@ const PageSwitch = ({ allPages, page }) => {
           inputMode="numeric"
         />
       </PageCountContainer>
-      <Button name="nextPage" disabled={isLastPage} onClick={toggleButton}>
+      <Button name="1" disabled={isLastPage} onClick={toggleButton}>
         <Icon type="angle-right" size={40} />
       </Button>
     </>

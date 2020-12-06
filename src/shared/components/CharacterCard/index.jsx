@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { cutName } from 'shared/utils/helpers';
 
@@ -19,6 +20,12 @@ const CharacterCard = ({ id, name, image }) => {
       </S.CharacterLink>
     </S.Block>
   );
+};
+
+CharacterCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default CharacterCard;

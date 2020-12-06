@@ -2,19 +2,13 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
 
-import { useCharacterContext } from 'context';
-
 import { CharacterCard, ErrorMessage, PageSwitch } from 'shared/components';
 
 import { GET_ALL_CHARACTERS } from 'shared/utils/queries/characters';
 
 import { CharacterListContainer, PageSwitchContainer } from './styled';
 
-const CharactersList = () => {
-  const { state } = useCharacterContext();
-
-  const { page, filter } = state;
-
+const CharactersList = ({ filter, page, setPage }) => {
   const { data, loading, error } = useQuery(GET_ALL_CHARACTERS, {
     variables: { page, filter },
   });
@@ -22,6 +16,8 @@ const CharactersList = () => {
   if (error) return <ErrorMessage text="Nothing found! Try again!" />;
 
   const { results } = !loading && data.characters;
+  const { pages } = !loading && data.characters.info;
+
   const placeholder = loading ? (
     <Skeleton height={300} width={300} count={20} />
   ) : (
@@ -33,7 +29,7 @@ const CharactersList = () => {
       <CharacterListContainer>{placeholder}</CharacterListContainer>
       {!loading && (
         <PageSwitchContainer>
-          <PageSwitch page={page} allPages={data.characters.info.pages} />
+          <PageSwitch setPage={setPage} page={page} allPages={pages} />
         </PageSwitchContainer>
       )}
     </>

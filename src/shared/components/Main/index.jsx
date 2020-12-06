@@ -1,9 +1,9 @@
 import React from 'react';
 
-import * as S from './styled';
+import { StyledMain } from './styled';
 
 const Main = ({ children }) => {
-  return <S.Main>{children}</S.Main>;
+  return <StyledMain>{children}</StyledMain>;
 };
 
 export default Main;

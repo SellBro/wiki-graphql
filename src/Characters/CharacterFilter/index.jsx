@@ -1,79 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import { useCharacterContext } from 'context';
-
-import { Input, FilterButton, Select } from 'shared/components';
+import { FilterButton, InputDebounced as Input } from 'shared/components';
 
 import { FilterContainer } from './styled';
 
-const status = ['any', 'Alive', 'Dead', 'unknown'];
-const gender = ['any', 'Female', 'Male', 'Genderless', 'unknown'];
+// const status = ['any', 'Alive', 'Dead', 'unknown'];
+// const gender = ['any', 'Female', 'Male', 'Genderless', 'unknown'];
 
-const setOptions = propArray => {
-  return propArray.map(name => {
-    return {
-      value: name,
-      label: name.charAt(0).toUpperCase() + name.slice(1),
-    };
-  });
-};
+// const setOptions = propArray => {
+//   return propArray.map(name => {
+//     return {
+//       value: name,
+//       label: name.charAt(0).toUpperCase() + name.slice(1),
+//     };
+//   });
+// };
 
-const initialInputState = {
-  name: '',
-  species: '',
-  type: '',
-};
-
-export const CharacterFilter = () => {
-  const [inputState, setInputState] = useState(initialInputState);
-  const [timer, setTimer] = useState(0);
-  const { dispatch, state } = useCharacterContext();
-  const { filter } = state;
-
-  useEffect(() => {
-    return () => {
-      dispatch({ type: 'resetFilterOptions' });
-    };
-  }, [dispatch]);
-
-  const handleInputChange = event => {
-    clearTimeout(timer);
-    const { value } = event.target;
-    const option = event.target.name;
-    setInputState(prev => ({ ...prev, [option]: value }));
-    setTimer(
-      setTimeout(() => {
-        dispatch({
-          type: 'setFilter',
-          payload: { option, value },
-        });
-      }, 500),
-    );
-  };
-
-  const handleSelectChange = option => selectedOption => {
-    const { value } = selectedOption;
-    dispatch({ type: 'setFilter', payload: { option, value } });
-  };
-
-  const handleClick = () => {
-    if (Object.values(inputState).some(value => value)) {
-      clearTimeout(timer);
-      setInputState(initialInputState);
-      dispatch({ type: 'resetFilter' });
-    }
-  };
+export const CharacterFilter = ({ defaultFilters, filters, mergeFilters }) => {
+  const { name, species, type } = filters;
 
   return (
     <FilterContainer>
       <Input
-        name="name"
         placeholder="Name"
-        value={inputState.name}
-        onChange={handleInputChange}
+        value={name}
+        onChange={value => mergeFilters({ name: value })}
         size="small"
       />
-      <Select
+      {/* <Select
         name="gender"
         value={filter.gender === '' ? null : { value: filter.gender, label: filter.gender }}
         onChange={handleSelectChange('gender')}
@@ -86,22 +40,20 @@ export const CharacterFilter = () => {
         onChange={handleSelectChange('status')}
         options={setOptions(status)}
         placeholder="Status"
-      />
+      /> */}
       <Input
-        name="type"
         placeholder="Type"
-        value={inputState.type}
-        onChange={handleInputChange}
+        value={type}
+        onChange={value => mergeFilters({ type: value })}
         size="small"
       />
       <Input
-        name="species"
         placeholder="Species"
-        onChange={handleInputChange}
-        value={inputState.species}
+        value={species}
+        onChange={value => mergeFilters({ species: value })}
         size="small"
       />
-      <FilterButton onClick={handleClick}>Reset</FilterButton>
+      <FilterButton onClick={() => mergeFilters(defaultFilters)}>Reset</FilterButton>
     </FilterContainer>
   );
 };
