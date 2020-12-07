@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-import { device } from 'shared/utils/styles';
+import { color, device } from 'shared/utils/styles';
+
+import { Button } from 'shared/components';
 
 export const FilterContainer = styled.div`
   display: flex;
@@ -63,5 +65,12 @@ export const FilterContainer = styled.div`
     button {
       width: calc(25% - 11.25px);
     }
+  }
+`;
+
+export const ResetButton = styled(Button)`
+  :hover {
+    color: ${color.textPrimary};
+    background-color: ${color.orange};
   }
 `;

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button, InputDebounced as Input, Select } from 'shared/components';
+import { InputDebounced as Input, Select } from 'shared/components';
 
-import { FilterContainer } from './styled';
+import { FilterContainer, ResetButton } from './styled';
 
 const statuses = ['Any', 'Alive', 'Dead', 'unknown'];
 const genders = ['Any', 'Female', 'Male', 'Genderless', 'unknown'];
@@ -13,7 +13,6 @@ export const CharactersFilter = ({ defaultFilters, filters, mergeFilters }) => {
 
   const handleSelectChange = option => selected => {
     const { value } = selected;
-
     mergeFilters({ [option]: value });
   };
 
@@ -51,7 +50,7 @@ export const CharactersFilter = ({ defaultFilters, filters, mergeFilters }) => {
         onChange={value => mergeFilters({ species: value })}
         size="small"
       />
-      <Button onClick={() => mergeFilters(defaultFilters)}>Reset</Button>
+      <ResetButton onClick={() => mergeFilters(defaultFilters)}>Reset</ResetButton>
     </FilterContainer>
   );
 };

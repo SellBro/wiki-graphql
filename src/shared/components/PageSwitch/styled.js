@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { font, color } from 'shared/utils/styles';
 
-export const Button = styled.button`
+import Button from '../Button';
+
+export const StyledButton = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;

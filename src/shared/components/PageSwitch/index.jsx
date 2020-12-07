@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import { scrollTo } from 'shared/utils/helpers';
 
-import { Icon } from '..';
-
-import { Button, Input, PageCountContainer } from './styled';
+import { StyledButton, Input, PageCountContainer } from './styled';
 
 const initInputState = {
   value: '',
@@ -19,12 +17,9 @@ const PageSwitch = ({ allPages, page, setPage }) => {
     setInputState({ value: page, focused: false });
   }, [page]);
 
-  const toggleButton = e => {
-    const { name } = e.target;
-
+  const toggleButton = value => {
     scrollTo(0, 0);
-
-    setPage(page + parseInt(name));
+    setPage(page + value);
   };
 
   const setCurrentPage = newPage => {
@@ -78,9 +73,7 @@ const PageSwitch = ({ allPages, page, setPage }) => {
 
   return (
     <>
-      <Button name="-1" disabled={isFirstPage} onClick={toggleButton}>
-        <Icon type="angle-left" size={40} />
-      </Button>
+      <StyledButton icon="angle-left" disabled={isFirstPage} onClick={() => toggleButton(-1)} />
       <PageCountContainer>
         <Input
           isFocused={inputState.focused}
@@ -93,9 +86,7 @@ const PageSwitch = ({ allPages, page, setPage }) => {
           inputMode="numeric"
         />
       </PageCountContainer>
-      <Button name="1" disabled={isLastPage} onClick={toggleButton}>
-        <Icon type="angle-right" size={40} />
-      </Button>
+      <StyledButton icon="angle-right" disabled={isLastPage} onClick={() => toggleButton(1)} />
     </>
   );
 };
