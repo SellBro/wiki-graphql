@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Header, Main } from 'shared/components';
 
-import Characters from 'Characters';
-import Episodes from 'Episodes';
-import Locations from 'Locations';
+import { Characters, CharacterProfile, Episodes, Locations } from 'pages';
 
 const Routes = () => {
   return (
@@ -14,6 +12,7 @@ const Routes = () => {
       <Main>
         <Switch>
           <Route exact path="/characters" component={Characters} />
+          <Route exact path="/characters/:id" component={CharacterProfile} />
           <Route path="/episodes" component={Episodes} />
           <Route path="/locations" component={Locations} />
         </Switch>

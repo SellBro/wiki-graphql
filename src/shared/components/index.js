@@ -4,7 +4,7 @@ import CharacterCard from './CharacterCard';
 import CharacterImage from './CharacterImage';
 import PageSwitch from './PageSwitch';
 import Input from './Input';
-import FilterButton from './FilterButton';
+import Button from './Button';
 import Select from './Select';
 import Icon from './Icon';
 import ErrorMessage from './ErrorMessage';
@@ -17,7 +17,7 @@ export {
   CharacterImage,
   PageSwitch,
   Input,
-  FilterButton,
+  Button,
   Select,
   Icon,
   ErrorMessage,

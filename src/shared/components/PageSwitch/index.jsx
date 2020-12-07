@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { scrollTo } from 'shared/utils/helpers';
 
@@ -97,6 +98,12 @@ const PageSwitch = ({ allPages, page, setPage }) => {
       </Button>
     </>
   );
+};
+
+PageSwitch.propTypes = {
+  allPages: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
 export default PageSwitch;

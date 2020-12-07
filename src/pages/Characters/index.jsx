@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 
 import useMergeState from 'shared/utils/hooks/mergeState';
 
-import CharacterFilter from './CharacterFilter';
+import CharactersFilter from './CharactersFilter';
 import CharactersList from './CharacterList';
 
 const defaultFilters = {
   name: '',
   species: '',
   type: '',
+  gender: '',
+  status: '',
 };
 
 const Characters = () => {
@@ -17,7 +19,7 @@ const Characters = () => {
 
   return (
     <>
-      <CharacterFilter
+      <CharactersFilter
         defaultFilters={defaultFilters}
         filters={filters}
         mergeFilters={mergeFilters}

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import Skeleton from 'react-loading-skeleton';
 
@@ -34,6 +35,12 @@ const CharactersList = ({ filter, page, setPage }) => {
       )}
     </>
   );
+};
+
+CharactersList.propTypes = {
+  filter: PropTypes.object.isRequired,
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
 export default CharactersList;

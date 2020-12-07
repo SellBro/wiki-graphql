@@ -25,6 +25,6 @@ export const StyledButton = styled.button`
   }
 
   @media only screen and (min-width: 1025px) {
-    width: calc(25% - 11.25px);
+    width: ${({ fullWidth }) => (!fullWidth ? 'calc(25% - 11.25px)' : '100%')};
   }
 `;

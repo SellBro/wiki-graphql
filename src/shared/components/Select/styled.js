@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { color, font } from 'shared/utils/styles';
 
 export const SelectContainer = styled.div`
+  ${font.size(14)};
+  color: ${color.textPrimary};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : '300px')};
   height: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
-  color: ${color.textPrimary};
-  ${font.size(14)};
 
   .react-select-container {
     height: 100%;
@@ -37,12 +37,13 @@ export const SelectContainer = styled.div`
   .react-select__indicator {
     cursor: pointer;
     &:hover {
-      background-color: ${color.orange};
+      color: ${color.textPrimary};
     }
   }
   .react-select__menu {
     color: ${color.textPrimary};
     background-color: ${color.orange};
+    padding: 0;
     border-radius: 8px;
   }
   .react-select__option {
@@ -51,12 +52,21 @@ export const SelectContainer = styled.div`
       border-top-right-radius: calc(8px / 1.5);
     }
     &:last-of-type {
+      border-bottom-left-radius: calc(8px / 1.5);
+      border-bottom-right-radius: calc(8px / 1.5);
     }
   }
   .react-select__option--is-selected {
+    background-color: ${color.orange};
   }
   .react-select__option--is-focused {
+    color: ${color.orange};
+    background-color: ${color.textPrimary};
   }
+
+  .react-select__placeholder {
+  }
+
   .react-select__input,
   .react-select__single-value {
     color: ${color.textPrimary};

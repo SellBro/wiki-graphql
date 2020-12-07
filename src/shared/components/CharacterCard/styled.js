@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { font, color } from 'shared/utils/styles';
+import { font, color, device } from 'shared/utils/styles';
 
 export const CardContainer = styled.div`
   position: relative;
@@ -10,6 +10,15 @@ export const CardContainer = styled.div`
   border-radius: 8px;
   overflow: hidden;
   background-color: ${color.cardInfo};
+
+  @media ${device.mobileS} {
+    width: 100%;
+    height: calc(100vw - 20px);
+
+    & img {
+      width: 100%;
+    }
+  }
 `;
 
 export const Info = styled.div`
@@ -30,6 +39,10 @@ export const Info = styled.div`
 export const CharacterLink = styled(Link)`
   display: block;
   color: ${color.textPrimary};
+
+  @media ${device.mobileS} {
+    width: 100%;
+  }
 `;
 
 export const Block = styled.li`
@@ -38,4 +51,8 @@ export const Block = styled.li`
   justify-content: center;
   margin-bottom: 15px;
   width: 315px;
+
+  @media ${device.mobileS} {
+    width: 100%;
+  }
 `;

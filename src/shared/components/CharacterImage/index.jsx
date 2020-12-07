@@ -28,7 +28,7 @@ CharacterImage.propTypes = {
 
 CharacterImage.defaultProps = {
   height: '100%',
-  width: '100%',
+  width: undefined,
   circle: undefined,
 };
 
