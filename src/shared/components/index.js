@@ -9,6 +9,7 @@ import Select from './Select';
 import Icon from './Icon';
 import ErrorMessage from './ErrorMessage';
 import InputDebounced from './InputDebounced';
+import Loader from './Loader';
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   Icon,
   ErrorMessage,
   InputDebounced,
+  Loader,
 };

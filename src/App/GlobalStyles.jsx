@@ -12,7 +12,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     #root , html, body {
-        height: 100%;
         margin: 0;
     }
 

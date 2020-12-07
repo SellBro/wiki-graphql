@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
 
 import { GET_CHARACTER } from 'shared/utils/queries/characters';
-import { ErrorMessage, CharacterImage } from 'shared/components';
+import { ErrorMessage, CharacterImage, Loader } from 'shared/components';
 
 import EpisodesList from './EpisodesList';
 
@@ -18,7 +18,7 @@ const CharacterProfile = () => {
     variables: { id },
   });
 
-  if (loading) return <h1>Loader</h1>;
+  if (loading) return <Loader />;
   if (error) return <ErrorMessage text="Character Not found" />;
 
   const { character } = data;
