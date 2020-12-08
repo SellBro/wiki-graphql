@@ -13,7 +13,7 @@ const Routes = () => {
         <Switch>
           <Route exact path="/characters" component={Characters} />
           <Route exact path="/characters/:id" component={CharacterProfile} />
-          <Route path="/episodes" component={Episodes} />
+          <Route exact path="/episodes" component={Episodes} />
           <Route path="/locations" component={Locations} />
         </Switch>
       </Main>

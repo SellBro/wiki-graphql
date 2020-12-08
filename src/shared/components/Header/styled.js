@@ -19,7 +19,7 @@ export const Nav = styled.div`
   justify-content: space-between;
   -webkit-box-align: center;
   align-items: center;
-  max-width: 1260px;
+  max-width: ${({ isFull }) => (isFull ? '1260px' : '900px')};
   margin: 0px auto;
   padding: 0px 7.5px;
   transition: all 0.2s ease 0s, width 0.3s ease-out 0s, padding 0.3s ease-out 0s;

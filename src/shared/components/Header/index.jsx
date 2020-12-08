@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <S.Container>
-      <S.Nav>
+      <S.Nav isFull={!paths.every(({ path }) => pathname !== path)}>
         <S.Links>
           {paths.map(({ path, name }, index) => (
             <S.LinkContainer key={index} active={pathname.startsWith(path)}>

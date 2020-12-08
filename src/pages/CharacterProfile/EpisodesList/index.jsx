@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Button } from 'shared/components';
 
+import { displaySeparateEpisode } from 'shared/utils/helpers';
+
 import {
   EpisodeListContainer,
   EpisodeListItem,
@@ -44,15 +46,6 @@ const EpisodesList = ({ episodes }) => {
       )}
     </EpisodeListContainer>
   );
-};
-
-const displaySeparateEpisode = episode => {
-  const reg = /[se]/i;
-  if (!reg.test(episode)) {
-    return 'No such episode';
-  }
-  const splittedEpisode = episode.split(reg).filter(Boolean);
-  return `S${splittedEpisode[0]} E${splittedEpisode[1]}`;
 };
 
 EpisodesList.propTypes = {
