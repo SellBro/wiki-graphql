@@ -12,7 +12,7 @@ import * as S from './styled';
 
 const EpisodesList = ({ page, filter }) => {
   const { data, loading, error, fetchMore } = useQuery(GET_ALL_EPISODES, {
-    variables: { page, filter },
+    variables: { page, filter: { name: filter.name, episode: filter.episode } },
   });
 
   if (error) return <ErrorMessage text="There are no sush episodes" />;
@@ -20,7 +20,10 @@ const EpisodesList = ({ page, filter }) => {
   const handleClick = () => {
     if (data.episodes.info.next) {
       fetchMore({
-        variables: { page: data.episodes.info.next, filter },
+        variables: {
+          page: data.episodes.info.next,
+          filter: { name: filter.name, episode: filter.episode },
+        },
         updateQuery: (prev, current) => {
           if (!current.fetchMoreResult) return prev;
           return {

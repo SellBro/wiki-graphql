@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { scrollTo } from 'shared/utils/helpers';
+
 import * as S from './styled';
 
 const paths = [
@@ -18,7 +20,9 @@ const Header = () => {
         <S.Links>
           {paths.map(({ path, name }, index) => (
             <S.LinkContainer key={index} active={pathname.startsWith(path)}>
-              <S.ALink to={path}>{name}</S.ALink>
+              <S.ALink onClick={scrollTo(0, 0)} to={path}>
+                {name}
+              </S.ALink>
             </S.LinkContainer>
           ))}
         </S.Links>

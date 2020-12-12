@@ -19,6 +19,11 @@ export const StyledButton = styled.button`
   color: ${color.orange};
   border: 1px solid ${color.orange};
 
+  :hover {
+    color: ${({ active }) => (active ? color.textPrimary : '')};
+    background-color: ${({ active }) => (active ? color.orange : '')};
+  }
+
   @media only screen and (min-width: 1025px) {
     width: ${({ fullWidth }) => (!fullWidth ? 'calc(25% - 11.25px)' : '100%')};
   }

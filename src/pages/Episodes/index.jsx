@@ -8,6 +8,7 @@ import EpisodesList from './EpisodesList';
 const defaultFilters = {
   name: '',
   episode: '',
+  season: '',
 };
 
 const Episodes = () => {
