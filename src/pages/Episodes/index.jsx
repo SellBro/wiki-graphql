@@ -6,9 +6,12 @@ import EpisodesFilter from './EpisodesFilter';
 import EpisodesList from './EpisodesList';
 
 const defaultFilters = {
-  name: '',
-  episode: '',
+  filterOptions: {
+    name: '',
+    episode: '',
+  },
   season: '',
+  episode: '',
 };
 
 const Episodes = () => {

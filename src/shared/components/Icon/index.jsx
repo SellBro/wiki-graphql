@@ -6,6 +6,7 @@ import { StyledIcon } from './styled';
 const fontIconCodes = {
   [`angle-left`]: '\u2770',
   [`angle-right`]: '\u2771',
+  [`clock`]: '\u23F0',
 };
 
 const Icon = ({ type, ...props }) => {

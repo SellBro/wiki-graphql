@@ -2,6 +2,7 @@ import Header from './Header';
 import Main from './Main';
 import CharacterCard from './CharacterCard';
 import CharacterImage from './CharacterImage';
+import CharacterList from './CharactersList';
 import PageSwitch from './PageSwitch';
 import Input from './Input';
 import Button from './Button';
@@ -16,6 +17,7 @@ export {
   Main,
   CharacterCard,
   CharacterImage,
+  CharacterList,
   PageSwitch,
   Input,
   Button,

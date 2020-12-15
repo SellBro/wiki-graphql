@@ -7,6 +7,18 @@ export const cutName = (name, length) => {
   return name.length > length ? `${name.slice(0, length - 2)}...` : name;
 };
 
+export const separateEpisodeNumber = episode => {
+  const reg = /[se]/i;
+  if (!reg.test(episode)) {
+    return ['', ''];
+  }
+  const splittedEpisode = episode
+    .split(reg)
+    .filter(Boolean)
+    .map(str => Number(str));
+  return [splittedEpisode[0], splittedEpisode[1]];
+};
+
 export const displaySeparateEpisode = episode => {
   const reg = /[se]/i;
   if (!reg.test(episode)) {
@@ -17,11 +29,14 @@ export const displaySeparateEpisode = episode => {
 };
 
 export const combineEpisodeNumber = (season, episode) => {
+  const seasonNumber = +season < 10 ? `S0${season}` : `S${season}`;
+
+  const episodeNumber = +episode < 10 ? `E0${episode}` : `E${episode}`;
+
   if (Number.isNaN(+season) || Number.isNaN(+episode)) {
     return '';
   }
-  const seasonNumber = +season < 10 ? `S0${season}` : `S${season}`;
-  const episodeNumber = +episode < 10 ? `E0${episode}` : `E${episode}`;
+
   if (!season) {
     return `${episodeNumber}`;
   }
@@ -37,15 +52,15 @@ export const getEpisode = (state, payload) => {
       payload.option === 'season'
         ? combineEpisodeNumber('', state.episode)
         : combineEpisodeNumber(state.season, '');
-
     return {
       ...state,
       [payload.option]: '',
-      episode,
+      filterOptions: {
+        ...state.filterOptions,
+        episode,
+      },
     };
   }
-
-  console.log(payload);
 
   const episode =
     payload.option === 'season'
@@ -55,6 +70,9 @@ export const getEpisode = (state, payload) => {
   return {
     ...state,
     [payload.option]: payload.value,
-    episode,
+    filterOptions: {
+      ...state.filterOptions,
+      episode,
+    },
   };
 };

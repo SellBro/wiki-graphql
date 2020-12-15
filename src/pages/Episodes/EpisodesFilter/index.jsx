@@ -13,7 +13,7 @@ const episodesNumber = {
 };
 
 const EpisodesFilter = ({ defaultFilters, mergeFilters, filters }) => {
-  const { name, episode, season } = filters;
+  const { filterOptions, episode, season } = filters;
 
   const seasonOptions = [
     { value: 'any', label: 'Any' },
@@ -33,11 +33,8 @@ const EpisodesFilter = ({ defaultFilters, mergeFilters, filters }) => {
 
   const handleSelectChange = option => selected => {
     const { value } = selected;
-
     mergeFilters(getEpisode(filters, { option, value }));
   };
-
-  console.log(filters);
 
   useEffect(() => {
     return () => {
@@ -47,7 +44,11 @@ const EpisodesFilter = ({ defaultFilters, mergeFilters, filters }) => {
 
   return (
     <FilterContainer>
-      <Input placeholder="Name" value={name} onChange={value => mergeFilters({ name: value })} />
+      <Input
+        placeholder="Name"
+        value={filterOptions.name}
+        onChange={value => mergeFilters({ filterOptions: { ...filterOptions, name: value } })}
+      />
       <Select
         placeholder="Season"
         options={seasonOptions}

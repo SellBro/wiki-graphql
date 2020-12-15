@@ -11,8 +11,10 @@ import { ErrorMessage } from 'shared/components';
 import * as S from './styled';
 
 const EpisodesList = ({ page, filter }) => {
+  const { filterOptions } = filter;
+
   const { data, loading, error, fetchMore } = useQuery(GET_ALL_EPISODES, {
-    variables: { page, filter: { name: filter.name, episode: filter.episode } },
+    variables: { page, filter: filterOptions },
   });
 
   if (error) return <ErrorMessage text="There are no sush episodes" />;
@@ -22,7 +24,7 @@ const EpisodesList = ({ page, filter }) => {
       fetchMore({
         variables: {
           page: data.episodes.info.next,
-          filter: { name: filter.name, episode: filter.episode },
+          filter: filterOptions,
         },
         updateQuery: (prev, current) => {
           if (!current.fetchMoreResult) return prev;
@@ -39,7 +41,7 @@ const EpisodesList = ({ page, filter }) => {
 
   const { results } = !loading && data.episodes;
   const content = loading ? (
-    <Skeleton count={10} />
+    <Skeleton count={5} />
   ) : (
     results.map(({ id, name, episode }) => {
       return (
