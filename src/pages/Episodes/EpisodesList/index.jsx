@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
 import { useQuery } from '@apollo/react-hooks';
 
@@ -40,8 +41,9 @@ const EpisodesList = ({ page, filter }) => {
   };
 
   const { results } = !loading && data.episodes;
+
   const content = loading ? (
-    <Skeleton count={5} />
+    <Skeleton count={10} />
   ) : (
     results.map(({ id, name, episode }) => {
       return (
@@ -67,6 +69,15 @@ const EpisodesList = ({ page, filter }) => {
       )}
     </S.EpisodesListContainer>
   );
+};
+
+EpisodesList.propTypes = {
+  page: PropTypes.number,
+  filter: PropTypes.object.isRequired,
+};
+
+EpisodesList.defaultProps = {
+  page: 1,
 };
 
 export default EpisodesList;

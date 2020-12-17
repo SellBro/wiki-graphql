@@ -2,12 +2,19 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
 
-import { useImdb } from 'shared/utils/useImdb';
+import { useImdb } from 'shared/utils/hooks/useImdb';
 import { GET_EPISODE } from 'shared/utils/queries/episodes';
 
 import { separateEpisodeNumber } from 'shared/utils/helpers';
 
-import { ErrorMessage, Loader, CharacterImage, Icon, CharacterList } from 'shared/components';
+import {
+  ErrorMessage,
+  Loader,
+  CharacterImage,
+  CharacterList,
+  ClockIcon,
+  ImdbLogo,
+} from 'shared/components';
 
 import * as S from './styled';
 
@@ -46,14 +53,14 @@ const Episode = () => {
             <S.ImdbContainer>
               <span>{`Season ${season} Episode ${episode}`}</span>
               <span>
-                {episodeData.Ratings.Value}
-                {/* <FontAwesomeIcon icon={faImdb} size="lg" /> */}
+                {episodeData.Ratings[0].Value.split('/')[0]}
+                <ImdbLogo />
               </span>
             </S.ImdbContainer>
             <S.ExtraInfoContainer>
               <span>{episodeData.airDate}</span>
               <span>
-                <Icon type="clock" />
+                <ClockIcon />
                 {episodeData.Runtime}
               </span>
             </S.ExtraInfoContainer>

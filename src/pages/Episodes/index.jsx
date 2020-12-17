@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import useMergeState from 'shared/utils/hooks/mergeState';
 
@@ -16,7 +16,6 @@ const defaultFilters = {
 
 const Episodes = () => {
   const [filters, mergeFilters] = useMergeState(defaultFilters);
-  const [page] = useState(1);
 
   return (
     <>
@@ -25,7 +24,7 @@ const Episodes = () => {
         filters={filters}
         mergeFilters={mergeFilters}
       />
-      <EpisodesList filter={filters} page={page} />
+      <EpisodesList filter={filters} />
     </>
   );
 };

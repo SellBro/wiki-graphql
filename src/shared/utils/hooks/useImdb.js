@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { separateEpisodeNumber } from './helpers';
+import { separateEpisodeNumber } from '../helpers';
 
 const link = `https://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=tt2861424&`;
 

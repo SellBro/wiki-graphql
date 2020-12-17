@@ -84,16 +84,16 @@ export const ImdbContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${font.size(24)};
+  ${font.size(20)};
   color: ${color.textPrimary};
 
   span {
     &:last-of-type {
       margin-left: 20px;
 
-      svg {
+      img {
+        vertical-align: -0.225em;
         margin-left: 10px;
-        color: #dba506;
       }
     }
   }

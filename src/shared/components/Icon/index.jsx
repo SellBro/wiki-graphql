@@ -6,21 +6,24 @@ import { StyledIcon } from './styled';
 const fontIconCodes = {
   [`angle-left`]: '\u2770',
   [`angle-right`]: '\u2771',
-  [`clock`]: '\u23F0',
+  [`clock`]: '\u1F570',
+  [`star`]: '\u2B50',
 };
 
-const Icon = ({ type, ...props }) => {
+const Icon = ({ type, svg, ...props }) => {
   return <StyledIcon code={fontIconCodes[type]} {...props} />;
 };
 
 Icon.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf(Object.keys(fontIconCodes)).isRequired,
+  svg: PropTypes.string,
   size: PropTypes.number,
 };
 
 Icon.defaultProps = {
   className: undefined,
+  svg: undefined,
   size: 16,
 };
 

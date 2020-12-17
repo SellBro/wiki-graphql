@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import * as S from './styled';
 
@@ -50,6 +51,16 @@ const CharacterList = ({ characters, listLength, title }) => {
       )}
     </S.CharacterListContainer>
   );
+};
+
+CharacterList.propTypes = {
+  characters: PropTypes.array,
+  listLength: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+CharacterList.defaultProps = {
+  characters: [],
 };
 
 export default CharacterList;

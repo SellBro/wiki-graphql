@@ -11,6 +11,8 @@ import Icon from './Icon';
 import ErrorMessage from './ErrorMessage';
 import InputDebounced from './InputDebounced';
 import Loader from './Loader';
+import ClockIcon from './ClockIcon';
+import ImdbLogo from './ImdbLogo';
 
 export {
   Header,
@@ -26,4 +28,6 @@ export {
   ErrorMessage,
   InputDebounced,
   Loader,
+  ClockIcon,
+  ImdbLogo,
 };

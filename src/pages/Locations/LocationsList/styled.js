@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { Button as BButton } from 'shared/components';
 
-import { device, font, color } from 'shared/utils/styles';
+import { color, font, device } from 'shared/utils/styles';
 
-export const EpisodesListContainer = styled.div`
+export const LocationsContainer = styled.div`
   max-width: 1280px;
   margin: 0 auto 20px 0;
   padding: 0 17.5px;
@@ -18,7 +18,8 @@ export const EpisodesListContainer = styled.div`
     margin: 15px auto;
   }
 `;
-export const EpisodesListStyled = styled.ul`
+
+export const LocationsListStyled = styled.ul`
   padding: 20px 0 5px 0;
   margin: 0;
   ${font.size(20)};
@@ -31,7 +32,7 @@ export const EpisodesListStyled = styled.ul`
   }
 `;
 
-export const EpisodesListItem = styled.li`
+export const LocationsListItem = styled.li`
   position: relative;
   padding: 30px 20px;
   margin-bottom: 15px;
@@ -46,19 +47,22 @@ export const EpisodesListItem = styled.li`
   }
 `;
 
-export const EpisodeName = styled.div`
+export const LocationName = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   line-height: 1.5;
 
-  ${EpisodesListItem}:hover & {
+  ${LocationsListItem}:hover & {
     color: ${color.orange};
   }
 `;
 
-export const EpisodeType = styled.div`
-  ${font.size(14)};
+export const LocationType = styled.div`
+  margin-left: 10px;
+  text-transform: capitalize;
+  text-align: right;
+  ${font.size(16)};
   color: ${color.orange};
 `;
 

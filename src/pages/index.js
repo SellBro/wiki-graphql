@@ -3,5 +3,6 @@ import CharacterProfile from './CharacterProfile';
 import Episodes from './Episodes';
 import EpisodeProfile from './EpisodeProfile';
 import Locations from './Locations';
+import LocationProfile from './LocationProfile';
 
-export { Characters, CharacterProfile, Episodes, EpisodeProfile, Locations };
+export { Characters, CharacterProfile, Episodes, EpisodeProfile, Locations, LocationProfile };

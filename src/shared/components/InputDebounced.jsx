@@ -8,6 +8,7 @@ const InputDebounced = ({ onChange, value: propsValue, ...props }) => {
   const [value, setValue] = useState(propsValue);
   const isControlled = propsValue !== undefined;
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleChange = useCallback(
     debounce(newValue => {
       onChange(newValue);

@@ -18,10 +18,6 @@ const EpisodesList = ({ episodes }) => {
   const [episodeListIsFull, setEpisodeListIsFull] = useState(false);
   const visibleEpisodes = episodeListIsFull ? episodes : episodes.slice(0, 7);
 
-  const handleClick = () => {
-    setEpisodeListIsFull(prev => !prev);
-  };
-
   return (
     <EpisodeListContainer>
       <EpisodesTitle>episodes: </EpisodesTitle>
@@ -39,7 +35,7 @@ const EpisodesList = ({ episodes }) => {
       </EpisodeListStyled>
       {episodes.length > 7 && (
         <ButtonContainer>
-          <Button fullWidth onClick={handleClick}>
+          <Button fullWidth onClick={() => setEpisodeListIsFull(prev => !prev)}>
             {episodeListIsFull ? 'Show less' : 'Show more'}
           </Button>
         </ButtonContainer>
