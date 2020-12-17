@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { GET_LOCATION } from 'shared/utils/queries/locations';
 
-import { Loader, ErrorMessage, CharacterList } from 'shared/components';
+import { Loader, ErrorMessage, ResidentsList } from 'shared/components';
 
 import { LocationContainer, LocationTitle, InfoContainer, ExtraInfoContainer } from './styled';
 
@@ -37,7 +37,7 @@ const LocationProfile = () => {
           <span>{typeName}</span>
         </ExtraInfoContainer>
       </InfoContainer>
-      <CharacterList characters={location.residents} title="residents" listLength={7} />
+      <ResidentsList characters={location.residents} title="residents" listLength={7} />
     </LocationContainer>
   );
 };

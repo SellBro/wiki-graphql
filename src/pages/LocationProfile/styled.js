@@ -32,5 +32,5 @@ export const ExtraInfoContainer = styled.div`
   margin-top: 20px;
   text-transform: capitalize;
   ${font.size(20)};
-  color: ${color.orange};
+  color: ${color.textExtra};
 `;

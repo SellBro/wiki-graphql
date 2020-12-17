@@ -5,7 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 
 import { GET_ALL_LOCATIONS } from 'shared/utils/queries/locations';
 
-import { ErrorMessage } from 'shared/components';
+import { ErrorMessage, Button } from 'shared/components';
 
 import * as S from './styled';
 
@@ -55,9 +55,9 @@ const LocationsList = ({ page, filter }) => {
       <S.LocationsListStyled>{content}</S.LocationsListStyled>
       {!loading && data.locations.info.next && (
         <S.ButtonContainer>
-          <S.Button fullWidth onClick={handleClick}>
+          <Button fullWidth large active onClick={handleClick}>
             Show more
-          </S.Button>
+          </Button>
         </S.ButtonContainer>
       )}
     </S.LocationsContainer>

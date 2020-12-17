@@ -105,7 +105,7 @@ export const ExtraInfoContainer = styled.div`
   align-items: center;
   margin-top: 5px;
   ${font.size(14)};
-  color: ${color.textPrimary};
+  color: ${color.textExtra};
 
   span:last-of-type {
     margin-left: 20px;

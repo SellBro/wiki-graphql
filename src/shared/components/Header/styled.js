@@ -38,5 +38,5 @@ export const LinkContainer = styled.div`
   padding: 20px 10px;
   ${font.size(16)};
   color: ${color.textPrimary};
-  ${props => props.active && `border-bottom: 3px solid ${color.border};`}
+  ${props => props.active && `border-bottom: 3px solid ${color.orange};`}
 `;

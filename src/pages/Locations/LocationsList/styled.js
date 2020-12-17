@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { Button as BButton } from 'shared/components';
-
 import { color, font, device } from 'shared/utils/styles';
 
 export const LocationsContainer = styled.div`
@@ -89,15 +87,5 @@ export const ButtonContainer = styled.div`
 
   @media ${device.mobileS} {
     margin-top: 0;
-  }
-`;
-
-export const Button = styled(BButton)`
-  padding: 20px;
-  ${font.size(24)};
-
-  :hover {
-    color: ${color.textPrimary};
-    background-color: ${color.orange};
   }
 `;

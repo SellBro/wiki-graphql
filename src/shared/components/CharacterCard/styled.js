@@ -27,6 +27,9 @@ export const Info = styled.div`
   width: 100%;
   padding: 20px;
   transition: all 0.2s;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   ${font.size(20)};
   background-color: ${color.cardInfo};
 

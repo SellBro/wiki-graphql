@@ -11,6 +11,7 @@ export const color = {
 
   selectionOrange: '#ff9800',
   textPrimary: '#f4f6fc',
+  textExtra: '#b0b0b0',
 
   skeletonMain: '#2e2e2e',
   skeletonHighlight: '#303030',

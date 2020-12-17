@@ -7,7 +7,7 @@ import { displaySeparateEpisode } from 'shared/utils/helpers';
 
 import { GET_ALL_EPISODES } from 'shared/utils/queries/episodes';
 
-import { ErrorMessage } from 'shared/components';
+import { ErrorMessage, Button } from 'shared/components';
 
 import * as S from './styled';
 
@@ -62,9 +62,9 @@ const EpisodesList = ({ page, filter }) => {
       <S.EpisodesListStyled>{content}</S.EpisodesListStyled>
       {!loading && data.episodes.info.next && (
         <S.ButtonContainer>
-          <S.Button fullWidth onClick={handleClick}>
+          <Button fullWidth large active onClick={handleClick}>
             Show more
-          </S.Button>
+          </Button>
         </S.ButtonContainer>
       )}
     </S.EpisodesListContainer>

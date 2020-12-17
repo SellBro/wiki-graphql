@@ -2,6 +2,16 @@ import styled from 'styled-components';
 
 import { font, color } from 'shared/utils/styles';
 
+// export const Button = styled(BButton)`
+//   padding: 20px;
+//   ${font.size(24)};
+
+//   :hover {
+//     color: ${color.textPrimary};
+//     background-color: ${color.orange};
+//   }
+// `;
+
 export const StyledButton = styled.button`
   display: flex;
   -webkit-box-pack: center;
@@ -9,13 +19,13 @@ export const StyledButton = styled.button`
   -webkit-box-align: center;
   align-items: center;
   width: 100%;
-  padding: 10px;
+  padding: ${({ large }) => (large ? '20px' : '10px')};
   border-radius: 8px;
   background-color: inherit;
   text-transform: capitalize;
   transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
   cursor: pointer;
-  ${font.size(14)};
+  ${({ large }) => (large ? font.size(24) : font.size(14))};
   color: ${color.orange};
   border: 1px solid ${color.orange};
 

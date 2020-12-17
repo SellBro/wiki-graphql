@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import { Header, Main } from 'shared/components';
 
@@ -24,6 +24,7 @@ const Routes = () => {
           <Route exact path="/episodes/:id/:episodeNumber" component={EpisodeProfile} />
           <Route exact path="/locations" component={Locations} />
           <Route exact path="/locations/:id" component={LocationProfile} />
+          <Redirect to="/characters" />
         </Switch>
       </Main>
     </Router>

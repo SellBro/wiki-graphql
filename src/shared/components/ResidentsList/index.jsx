@@ -7,7 +7,7 @@ import CharacterImage from '../CharacterImage';
 
 import Button from '../Button';
 
-const CharacterList = ({ characters, listLength, title }) => {
+const ResidentsList = ({ characters, listLength, title }) => {
   const [characterListIsFull, setCharacterListIsFull] = useState(false);
 
   const filteredCharacters = characters.filter(char => char.id);
@@ -53,14 +53,14 @@ const CharacterList = ({ characters, listLength, title }) => {
   );
 };
 
-CharacterList.propTypes = {
+ResidentsList.propTypes = {
   characters: PropTypes.array,
   listLength: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
 };
 
-CharacterList.defaultProps = {
+ResidentsList.defaultProps = {
   characters: [],
 };
 
-export default CharacterList;
+export default ResidentsList;
