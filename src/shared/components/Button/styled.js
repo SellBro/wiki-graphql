@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 
-import { font, color } from 'shared/utils/styles';
-
-// export const Button = styled(BButton)`
-//   padding: 20px;
-//   ${font.size(24)};
-
-//   :hover {
-//     color: ${color.textPrimary};
-//     background-color: ${color.orange};
-//   }
-// `;
+import { font, color, device } from 'shared/utils/styles';
 
 export const StyledButton = styled.button`
   display: flex;
@@ -34,7 +24,7 @@ export const StyledButton = styled.button`
     background-color: ${({ active }) => (active ? color.orange : '')};
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media ${device.laptop} {
     width: ${({ fullWidth }) => (!fullWidth ? 'calc(25% - 11.25px)' : '100%')};
   }
 `;

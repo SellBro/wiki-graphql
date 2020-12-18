@@ -23,6 +23,7 @@ export const displaySeparateEpisode = episode => {
   return `S${splittedEpisode[0]} E${splittedEpisode[1]}`;
 };
 
+// Combining season and episode because we only have episode filter
 export const combineEpisodeNumber = (season, episode) => {
   const seasonNumber = +season < 10 ? `S0${season}` : `S${season}`;
 

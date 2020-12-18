@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { color, font } from 'shared/utils/styles';
+import { color, font, device } from 'shared/utils/styles';
 
 export const StyledInput = styled.input`
   padding: 10px 12px;
@@ -12,7 +12,7 @@ export const StyledInput = styled.input`
   background-color: ${color.background};
   border: 1px solid ${color.orange};
 
-  @media only screen and (min-width: 1025px) {
+  @media ${device.laptop} {
     width: calc(25% - 11.25px);
   }
 `;
