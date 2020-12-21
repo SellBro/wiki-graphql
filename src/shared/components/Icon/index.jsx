@@ -8,6 +8,7 @@ const fontIconCodes = {
   [`angle-right`]: '\u2771',
   [`clock`]: '\u1F570',
   [`star`]: '\u2B50',
+  [`trigram`]: '\u2630',
 };
 
 const Icon = ({ type, svg, ...props }) => {

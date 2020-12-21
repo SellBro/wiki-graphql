@@ -13,6 +13,8 @@ import InputDebounced from './InputDebounced';
 import Loader from './Loader';
 import ClockIcon from './ClockIcon';
 import ImdbLogo from './ImdbLogo';
+import Logo from './Logo';
+import { DesktopOnly, MobileOnly } from './Media';
 
 export {
   Header,
@@ -30,4 +32,7 @@ export {
   Loader,
   ClockIcon,
   ImdbLogo,
+  Logo,
+  DesktopOnly,
+  MobileOnly,
 };

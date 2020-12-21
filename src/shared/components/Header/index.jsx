@@ -1,9 +1,13 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
 
 import { scrollTo } from 'shared/utils/helpers';
 
-import * as S from './styled';
+import { DesktopOnly, MobileOnly } from 'shared/components';
+
+import DesktopHeader from './Desktop';
+import { MobileHeader, MobileNavBar } from './Mobile';
+
+import { Container } from './styled';
 
 const paths = [
   { name: 'Characters', path: '/characters' },
@@ -12,22 +16,26 @@ const paths = [
 ];
 
 const Header = () => {
-  const { pathname } = useLocation();
+  const [mobileBarIsOpen, setMobileBarIsOpen] = useState(false);
+
+  const handleToggleBar = () => {
+    setMobileBarIsOpen(prev => !prev);
+  };
+
+  const handleLinkClick = useCallback(() => {
+    scrollTo(0, 0);
+  }, []);
 
   return (
-    <S.Container>
-      <S.Nav isFull={!paths.every(({ path }) => pathname !== path)}>
-        <S.Links>
-          {paths.map(({ path, name }, index) => (
-            <S.LinkContainer key={index} active={pathname.startsWith(path)}>
-              <S.ALink onClick={scrollTo(0, 0)} to={path}>
-                {name}
-              </S.ALink>
-            </S.LinkContainer>
-          ))}
-        </S.Links>
-      </S.Nav>
-    </S.Container>
+    <Container>
+      <DesktopOnly>
+        <DesktopHeader paths={paths} handleLinkClick={handleLinkClick} />
+      </DesktopOnly>
+      <MobileOnly>
+        <MobileHeader mobileBarIsOpen={mobileBarIsOpen} handleToggleBar={handleToggleBar} />
+        <MobileNavBar isOpen={mobileBarIsOpen} handleToggleBar={handleToggleBar} paths={paths} />
+      </MobileOnly>
+    </Container>
   );
 };
 
