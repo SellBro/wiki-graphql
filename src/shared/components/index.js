@@ -1,38 +1,17 @@
-import Header from './Header';
-import Main from './Main';
-import CharacterCard from './CharacterCard';
-import CharacterImage from './CharacterImage';
-import ResidentsList from './ResidentsList';
-import PageSwitch from './PageSwitch';
-import Input from './Input';
-import Button from './Button';
-import Select from './Select';
-import Icon from './Icon';
-import ErrorMessage from './ErrorMessage';
-import InputDebounced from './InputDebounced';
-import Loader from './Loader';
-import ClockIcon from './ClockIcon';
-import ImdbLogo from './ImdbLogo';
-import Logo from './Logo';
-import { DesktopOnly, MobileOnly } from './Media';
-
-export {
-  Header,
-  Main,
-  CharacterCard,
-  CharacterImage,
-  ResidentsList,
-  PageSwitch,
-  Input,
-  Button,
-  Select,
-  Icon,
-  ErrorMessage,
-  InputDebounced,
-  Loader,
-  ClockIcon,
-  ImdbLogo,
-  Logo,
-  DesktopOnly,
-  MobileOnly,
-};
+export { default as Header } from './Header';
+export { default as Main } from './Main';
+export { default as CharacterCard } from './CharacterCard';
+export { default as CharacterImage } from './CharacterImage';
+export { default as ResidentsList } from './ResidentsList';
+export { default as PageSwitch } from './PageSwitch';
+export { default as Input } from './Input';
+export { default as Button } from './Button';
+export { default as Select } from './Select';
+export { default as Icon } from './Icon';
+export { default as ErrorMessage } from './ErrorMessage';
+export { default as InputDebounced } from './InputDebounced';
+export { default as Loader } from './Loader';
+export { default as ClockIcon } from './ClockIcon';
+export { default as ImdbLogo } from './ImdbLogo';
+export { default as Logo } from './Logo';
+export { DesktopOnly, MobileOnly } from './Media';

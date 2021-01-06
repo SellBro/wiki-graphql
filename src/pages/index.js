@@ -1,8 +1,6 @@
-import Characters from './Characters';
-import CharacterProfile from './CharacterProfile';
-import Episodes from './Episodes';
-import EpisodeProfile from './EpisodeProfile';
-import Locations from './Locations';
-import LocationProfile from './LocationProfile';
-
-export { Characters, CharacterProfile, Episodes, EpisodeProfile, Locations, LocationProfile };
+export { default as Characters } from './Characters';
+export { default as CharacterProfile } from './CharacterProfile';
+export { default as Episodes } from './Episodes';
+export { default as EpisodeProfile } from './EpisodeProfile';
+export { default as Locations } from './Locations';
+export { default as LocationProfile } from './LocationProfile';
